@@ -97,7 +97,7 @@ jobs:
           docker ps -l
           DATABASE_PORT=$(docker ps -l --format '{{ .ID }}' | xargs docker port | cut -d ':' -f 2)
           echo "DATABASE_PORT=$DATABASE_PORT"
-          echo "DATABASE_PORT=$DATABASE_PORT" >> $GITHUB_ENV
+          echo "DATABASE_PORT=\"$DATABASE_PORT\"" >> $GITHUB_ENV
 
       - name: Run base tests
         run: |
