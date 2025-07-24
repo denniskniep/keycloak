@@ -436,7 +436,7 @@
                 <docker.database.image>${tidb.container}</docker.database.image>
                 <docker.database.port>4000</docker.database.port>
                 <docker.database.skip>false</docker.database.skip>
-                <docker.database.cmd></docker.database.cmd>
+                <docker.database.cmd>start</docker.database.cmd>
                 <docker.database.wait-for-log-regex>server is running MySQL protocol</docker.database.wait-for-log-regex>
             </properties>
         </profile>
