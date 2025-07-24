@@ -38,7 +38,7 @@ class TiDBTestDatabase extends AbstractContainerTestDatabase {
                 }
                 throw new UnsupportedOperationException("The TiDB docker image does not currently support this");
             }
-        };
+        }.withExposedPorts(4000);
     }
 
     @Override
