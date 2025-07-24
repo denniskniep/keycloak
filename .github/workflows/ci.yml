@@ -210,7 +210,6 @@ jobs:
       - conditional
       - build
       - store-integration-tests
-      - store-model-tests
       - migration-tests
     runs-on: ubuntu-latest
     steps:
