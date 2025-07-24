@@ -58,7 +58,6 @@
     <changeSet author="keycloak" id="client-attributes-string-accomodation-fixed-pre-drop-index">
         <preConditions onSqlOutput="TEST" onFail="MARK_RAN">
             <and>
-                <dbms type="mysql" />
                 <not>
                     <changeSetExecuted id="client-attributes-string-accomodation-fixed" author="keycloak" changeLogFile="META-INF/jpa-changelog-20.0.0.xml"/>
                 </not>
@@ -83,7 +82,6 @@
     <changeSet author="keycloak" id="client-attributes-string-accomodation-fixed-post-create-index">
         <preConditions onSqlOutput="TEST" onFail="MARK_RAN">
             <and>
-                <dbms type="mysql" />
                 <not>
                     <changeSetExecuted id="client-attributes-string-accomodation-fixed" author="keycloak" changeLogFile="META-INF/jpa-changelog-20.0.0.xml"/>
                 </not>
