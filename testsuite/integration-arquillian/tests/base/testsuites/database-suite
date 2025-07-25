@@ -2,10 +2,10 @@ AccountRestServiceTest
 AuthorizationCodeTest
 AuthorizationTest
 ClientRegistrationTest
+EntitlementAPITest
 EventStoreProviderTest
 ExportImportTest
 GeneratedRsaKeyProviderTest
-GroupNamePolicyTest
 KcOidcBrokerTest
 LDAPUserLoginTest
 LoginTest
