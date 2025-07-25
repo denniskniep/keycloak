@@ -69,6 +69,16 @@ public class JPAResourceServerStore implements ResourceServerStore {
         //entityManager.createNamedQuery("deletePolicyByResourceServer")
         //        .setParameter("serverId", id).executeUpdate();
 
+        {
+            TypedQuery<String> query = entityManager.createNamedQuery("findPolicyIdByServerId", String.class);
+            query.setParameter("serverId", id);
+            List<String> result = query.getResultList();
+            for (String policyId : result) {
+                PolicyEntity policyEntity = entityManager.find(PolicyEntity.class, policyId);
+                policyEntity.getAssociatedPolicies().clear();
+                entityManager.remove(policyEntity);
+            }
+        }
 
         {
             TypedQuery<String> query = entityManager.createNamedQuery("findPermissionTicketIdByServerId", String.class);
@@ -78,17 +88,6 @@ public class JPAResourceServerStore implements ResourceServerStore {
             List<String> result = query.getResultList();
             for (String permissionId : result) {
                 entityManager.remove(entityManager.getReference(PermissionTicketEntity.class, permissionId));
-            }
-        }
-
-        {
-            TypedQuery<String> query = entityManager.createNamedQuery("findPolicyIdByServerId", String.class);
-            query.setParameter("serverId", id);
-            List<String> result = query.getResultList();
-            for (String policyId : result) {
-                PolicyEntity policyEntity = entityManager.find(PolicyEntity.class, policyId);
-                policyEntity.getAssociatedPolicies().clear();
-                entityManager.remove(policyEntity);
             }
         }
 
